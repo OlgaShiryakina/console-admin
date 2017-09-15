@@ -1,0 +1,65 @@
+$mainFont: 'Arial', sans-serif;
+
+$headerHeight: 50px;
+$sidebarWidth: 250px;
+
+$color0: #fff;
+$color1: #000;
+
+/* media
+   ================================== */
+
+$large: 1452;
+$desktop: 1260;
+$medium: 1068;
+$tablet: 768;
+$phone: 480;
+
+//@include responsive(maxTablet){}
+@mixin responsive($media) {
+  @if $media == maxPhone {
+    @media only screen and (max-width: $phone - 1 + 'px') { @content; }
+  }
+  @else if $media == phone {
+    @media only screen and (min-width: $phone + 'px') and (max-width: $tablet - 1 + 'px') { @content; }
+  }
+  @else if $media == maxTablet {
+    @media only screen and (max-width: $tablet - 1 + 'px') { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $tablet + 'px') and (max-width: $medium - 1 + 'px') { @content; }
+  }
+  @else if $media == minTablet {
+    @media only screen and (min-width: $tablet + 'px'){ @content; }
+  }
+  @else if $media == maxMedium {
+    @media only screen and (max-width: $medium - 1 + 'px') { @content; }
+  }
+  @else if $media == medium {
+    @media only screen and (min-width: $medium + 'px') and (max-width: $desktop - 1 + 'px') { @content; }
+  }
+  @else if $media == minMedium {
+    @media only screen and (min-width: $medium + 'px') { @content; }
+  }
+  @else if $media == maxDesktop {
+    @media only screen and (max-width: $desktop - 1 + 'px') { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $desktop + 'px') and (max-width: $large - 1 + 'px') { @content; }
+  }
+  @else if $media == minDesktop {
+    @media only screen and (min-width: $desktop + 'px') { @content; }
+  }
+
+}
+/* mixin
+   ================================== */
+/* @extend .imageCoverFixed; */
+.imageCoverFixed{
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-background-attachment: fixed;
+  background-attachment: fixed;
+}
