@@ -41,14 +41,13 @@
   @import '../../scss/variables';
   .sidebar{
     position: fixed;
-    z-index:10;
+    z-index: 3;
     top: 0;
     left: 0;
     background: $color1;
     width: $sidebarWidth;
     height: 100vh;
     box-sizing: border-box;
-    padding: 10px;
     border-right: 1px solid $color2;
     &__open{
       position: absolute;
@@ -71,5 +70,6 @@
         display: block;
       }
     }
+    &__main{padding: 10px;}
   }
 </style>

@@ -17,15 +17,27 @@ const store = new Vuex.Store({
     ],
     users: [
       {
-        name: '',
-        photo: ''
+        name: ''
       },
       {
-        name: 'olgashiryakina@gmail.com',
-        photo: 'https://lh3.googleusercontent.com/-lUEHAAmaUHM/AAAAAAAAAAI/AAAAAAAAAAA/APJypA30pxufELWVnSio9-WUH8DHM1Fc9w/s32-c-mo/photo.jpg'
+        name: 'olgashiryakina@gmail.com'
       }
     ],
     currentUser: 1
+    // pages: [
+    //   {
+    //     path: '/category',
+    //     name: 'Hello',
+    //     title: 'Default',
+    //     component: Hello
+    //   },
+    //   {
+    //     path: '/',
+    //     name: 'Category',
+    //     title: 'Category',
+    //     component: Catalog
+    //   }
+    // ]
   },
   getters: {
     getNav (state) {
