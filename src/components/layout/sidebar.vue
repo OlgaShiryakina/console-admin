@@ -1,19 +1,40 @@
 <template>
   <aside class="sidebar">
-    <a href="javascript:void(0);" class="sidebar__logo">
-      <img src="../../assets/logo.png" alt="Vue.js PWA">
-    </a>
-    sidebar
+    <a class="sidebar__open" href="javascript:void(0);"><icon name="bars" scale="2"></icon></a>
+    <div class="sidebar__header">
+      <a href="javascript:void(0);" class="sidebar__logo">
+        <img src="../../assets/logo.png" alt="Vue.js PWA">
+      </a>
+    </div>
+    <div class="sidebar__main">
+      <ul>
+        <li v-for="item in nav">
+          <a>{{ item.name }}</a>
+        </li>
+      </ul>
+    </div>
   </aside>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
+  import { mapGetters } from 'vuex'
+  import Icon from 'vue-awesome/components/Icon'
+  import 'vue-awesome/icons/bars'
+
+  export default {
+    components: {
+      Icon
+    },
+    data () {
+      return {
+      }
+    },
+    computed: {
+      ...mapGetters({
+        nav: 'getNav'
+      })
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -27,10 +48,28 @@ export default {
     width: $sidebarWidth;
     height: 100vh;
     box-sizing: border-box;
+    padding: 10px;
+    border-right: 1px solid $color2;
+    &__open{
+      position: absolute;
+      top: 0;
+      left: 100%;
+      height: $headerHeight;
+      width: $navIconWidth;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__header{
+      height: $headerHeight;
+      /*background: #555;*/
+    }
     &__logo{
-      height: 100px;
-      display: block;
-      margin: 0 auto;
+      img{
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+      }
     }
   }
 </style>
