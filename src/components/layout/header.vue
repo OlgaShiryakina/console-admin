@@ -23,19 +23,19 @@
       </div>
     </div>
     <div class="header__page">
-      <h1 class="header__page__title">Catalog</h1>
+      <h1 class="header__page__title">Catalog <br> http://gergeo.se/RWD-Table-Patterns/</h1>
       <div class="dropdown" :class="{ 'is-active': isActive}">
         <div class="dropdown-trigger">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"  @click="abc">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"  @click="isActive = !isActive">
             <span>Dropdown button</span>
             <span class="icon is-small">
         <i class="fa fa-angle-down" aria-hidden="true"></i>
       </span>
           </button>
         </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-menu">
           <div class="dropdown-content">
-            <a href="#" class="dropdown-item">
+            <a class="dropdown-item">
               Dropdown item
             </a>
             <a class="dropdown-item">
@@ -74,16 +74,20 @@
         isActive: false
       }
     },
+    created: function () {
+      // `this` points to the vm instance
+      console.log(this.headerHeight)
+    },
     computed: {
       ...mapGetters({
         user: 'getUser'
       })
     },
     methods: {
-      abc () {
-        this.isActive = !this.isActive
-        console.log(this.isActive)
-      }
+//      abc () {
+//        this.isActive = !this.isActive
+//        console.log(this.isActive)
+//      }
     }
   }
 </script>
@@ -106,6 +110,8 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid $color2;
+      position: relative;
+      z-index: 3;
     }
     &__syncDate{
       &__text{

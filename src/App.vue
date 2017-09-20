@@ -2,7 +2,7 @@
   <div id="app" class="wrap">
     <sidebar></sidebar>
     <block-header></block-header>
-    <main class="main">
+    <main class="main" :style="{ paddingTop: headerHeight + 'px'  }">
       <div class="main__content">
         <router-view></router-view>
       </div>
@@ -21,6 +21,7 @@
     },
     data: function () {
       return {
+        headerHeight: document.querySelector('.header').offsetHeight
       }
     }
   }
